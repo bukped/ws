@@ -48,13 +48,78 @@ fork repo
 
 lakukan clone repo yang di fork
 
+![image](https://user-images.githubusercontent.com/11188109/218396201-b906ff2c-af14-4d65-b9c1-bc9f52882fe7.png)
+
+
+install plugin live server
+![image](https://user-images.githubusercontent.com/11188109/218396548-483f109a-c88c-4bc6-96d0-5d784a447556.png)
+
+
+
 
 # Menghubungkan situs dengan Public API
 
-1. Pilih salah satu dari sini https://github.com/public-apis/public-apis. contoh : https://alexwohlbruck.github.io/cat-facts/docs/
+1. Buat folder NPM di dalam folder site
+2. Buat template tailwindcss simpan sebagai index.html
+3. buat file js dengan nama croot.js panggil di bawah dengan script, sebelum tag </body>
+    ```html
+    <script src="./croot.js"></script>
+    ```
+4. Buka dengan live server, inspect lihat di console.
 
-2. lakukan fork repo ini
+    ![image](https://user-images.githubusercontent.com/11188109/218408763-7514c229-ce10-4a48-b275-ebf23ddbf782.png)
 
-3. Buat folder NPM di dalam folder site
-4. Buat template tailwindcss
-5. 
+6. Isi dari script croot.js contoh :
+    ```js
+    var myHeaders = new Headers();
+    myHeaders.append("Cookie", "connect.sid=s%3AMsnp_KW3uPWTf6gN4GDNl7XAoOShdRL2.VK05aaDbN1FeG%2BScGHtOuxENv5s2ABoZZzLpqN%2FUbZs");
+
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+
+    hasil=""
+
+    fetch("https://cat-fact.herokuapp.com/facts", requestOptions)
+      .then(response => response.text())
+      .then(result => tampilkan(result))
+      .catch(error => console.log('error', error));
+
+    function tampilkan(result){
+      console.log(result);
+      hasil=JSON.parse(result);
+
+      //document.getElementById("nama").innerHTML(result);
+    }
+    ```
+    
+    akan terlihat variabel hasil di console log
+    
+    ![image](https://user-images.githubusercontent.com/11188109/218419862-983ddbba-a445-41a5-a703-f2d56829888a.png)
+    
+    untuk akses variabel global hasil kita pakai console log
+    
+    ![image](https://user-images.githubusercontent.com/11188109/218420311-3aa5700f-f6ec-4d5a-82d3-2000fdb24df6.png)
+    
+    kemudian tambahkan ramuan looping untuk mengeluarkan semuanya
+    
+    ![image](https://user-images.githubusercontent.com/11188109/218428781-5b8a7467-b027-48e6-aaf2-8437be0ec8c8.png)
+
+## Tugas
+
+1. Buat folder NPM di dalam folder site di dalam folder chapter01. Pilih Public API
+
+2. Ada dua file yang dibuat yaitu index.html dan croot.js. Men
+
+3. Buat html bisa membaca semua data dari API, pastikan setiap orang berbeda, tidak boleh sama API nya.
+    ![image](https://user-images.githubusercontent.com/11188109/218429415-dc895212-8982-4d73-9010-32cf5e72906f.png)
+
+4. Pull Request Dengan Subjek : 1-KELAS-NPM-NAMA , 
+5. Description : please include your screenshoot of your application and attach your javascript certificate.
+    * Take course from [mygreatlearning](https://www.mygreatlearning.com/academy/learn-for-free/courses/introduction-to-javascript) or from [LinkedIn](https://www.linkedin.com/learning/javascript-for-web-designers-3)
+    * Take Javascript Learning from [Google](https://learndigital.withgoogle.com/digitalgarage/course/learn-programming-with-javascript) for next class meeting.
+6. After Approved you might go home
+
+
