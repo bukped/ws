@@ -22,7 +22,7 @@ trtaabel = `<tr class="hover:bg-gray-50">
 </tr>`;
 
 
-  fetch("https://newsapi.org/v2/top-headlines?country=id&apiKey=b3cfb494998a484090e3e713044113fb", requestOptions)
+  fetch("https://rickandmortyapi.com/api/character", requestOptions)
     .then(response => response.text())
     .then(result => tampilkan(result))
     .catch(error => console.log('error', error));
@@ -32,12 +32,12 @@ function tampilkan(result){
     console.log(result)
     hasil=JSON.parse(result);
     // crot = trtaabel.replace("#text#", hasil.data[1].title)
-    txt = hasil.articles.forEach(isiintabelnya);
+    txt = hasil.results.forEach(isiintabelnya);
 }
 
 function isiintabelnya(value){
     console.log(value)
-    txt+= trtaabel.replace("#TEXT#", value.title)
+    txt+= trtaabel.replace("#TEXT#", value.name)
     document.getElementById("konten").innerHTML=txt;
     return txt
 
