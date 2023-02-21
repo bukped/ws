@@ -10,7 +10,7 @@ var requestOptions = {
 hasil = ""
 txt=""
 
-trtaabel = `<tr class="hover:bg-gray-50">
+trtaabel = ` <tr class="hover:bg-gray-50">
 <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
   <div class="relative h-10 w-10">
     <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
@@ -21,23 +21,21 @@ trtaabel = `<tr class="hover:bg-gray-50">
 </th>
 </tr>`;
 
-
-  fetch("https://api.artic.edu/api/v1/artworks", requestOptions)
-    .then(response => response.text())
-    .then(result => tampilkan(result))
-    .catch(error => console.log('error', error));
+fetch("https://api.imgflip.com/get_memes", requestOptions)
+  .then(response => response.text())
+  .then(result => tampilkan(result))
+  .catch(error => console.log('error', error));
 
 
 function tampilkan(result){
     console.log(result)
     hasil=JSON.parse(result);
     // crot = trtaabel.replace("#text#", hasil.data[1].title)
-    txt = hasil.data.forEach(isiintabelnya);
+    txt = hasil.data.memes.forEach(isiintabelnya);
 }
-
 function isiintabelnya(value){
     console.log(value)
-    txt+= trtaabel.replace("#TEXT#", value.title)
+    txt+= trtaabel.replace("#TEXT#", value.name)
     document.getElementById("konten").innerHTML=txt;
     return txt
 
