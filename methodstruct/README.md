@@ -53,7 +53,7 @@ type Example struct {
 2. Pakai struct tersebut di dalam app.Get Post Put Patch Delete dengan struct yang berbeda beda
 3. Uji dengan Thunder Client pastikan tidak ada error
 
-Penilaian
-setiap struct = 10
-setiap struct yang dipakai di app = 5
-setiap path yang berbeda = 5
+Penilaian:
+1. setiap struct(maksimal 5, contoh Example, Example1, Example2 ...) = 10
+2. setiap struct yang dipakai di app(get,put,post,patch,delete) = 5
+3. setiap path yang berbeda = 5
