@@ -54,6 +54,6 @@ type Example struct {
 3. Uji dengan Thunder Client pastikan tidak ada error
 
 Penilaian:
-1. setiap struct(maksimal 5, contoh Example, Example1, Example2 ...) = 10
-2. setiap struct yang dipakai di app(get,put,post,patch,delete) = 5
-3. setiap path yang berbeda = 5
+1. setiap struct(maksimal 5, contoh Example, Example1, Example2 ...) = @ 10 poin
+2. setiap struct yang dipakai di app(get,put,post,patch,delete) = @ 5 poin
+3. setiap path yang berbeda = @ 5 poin
